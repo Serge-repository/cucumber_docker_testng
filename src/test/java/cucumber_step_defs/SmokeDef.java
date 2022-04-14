@@ -9,8 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static cucumber_step_defs.DriverInitializer.driver;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 public class SmokeDef {
 
@@ -21,7 +20,7 @@ public class SmokeDef {
 
     @Then("title of homePage is {string}")
     public void titleOfHomePageIs(String pageTitle) {
-        assertEquals("Home page title is Guru99 Bank Home Page", pageTitle, driver.getTitle());
+        assertEquals(pageTitle, driver.getTitle(), "Home page title is Guru99 Bank Home Page");
     }
 
     @And("login form is present")
@@ -36,7 +35,7 @@ public class SmokeDef {
 
     @Then("title of newToursPage is {string}")
     public void titleOfNewToursPageIs(String pageTitle) {
-        assertEquals("Title must be Welcome: Mercury Tours", pageTitle, driver.getTitle());
+        assertEquals(pageTitle, driver.getTitle(), "Title must be Welcome: Mercury Tours");
     }
 
     @And("main fragment is present")
@@ -54,7 +53,7 @@ public class SmokeDef {
 
     @Then("title of tablePage is {string}")
     public void titleOfTablePageIsCorrect(String tabName) {
-        assertEquals("Title of the page is correct", tabName, driver.getTitle());
+        assertEquals(tabName, driver.getTitle(), "Title of the page is correct");
     }
 
     @And("table is present")

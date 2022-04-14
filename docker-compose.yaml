@@ -18,7 +18,7 @@ services:
 ## Volume mapping for file DOWNLOADS
     volumes:
       - .\target\downloads:/home/seluser/Downloads
-  ### Adding OUR DOCKER IMAGE RUN
+### Adding OUR DOCKER IMAGE RUN
   cucumber-bdd:
     image: serge11elzar/cucumber_docker
     depends_on:

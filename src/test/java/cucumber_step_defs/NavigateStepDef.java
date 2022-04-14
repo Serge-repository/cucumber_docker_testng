@@ -9,7 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static cucumber_step_defs.DriverInitializer.driver;
-import static org.junit.Assert.assertEquals;
+import static org.testng.Assert.*;
 
 public class NavigateStepDef {
 
@@ -30,8 +30,8 @@ public class NavigateStepDef {
         driver.findElement(By.name("uid")).sendKeys(username);
         driver.findElement(By.name("password")).sendKeys(password);
         if (username.equals("1303") && password.equals("Guru99")) {
-            assertEquals("We enter correct username", username, "1303");
-            assertEquals("We enter correct password", password, "Guru99");
+            assertEquals(username, "1303", "We enter correct username");
+            assertEquals(password, "Guru99", "We enter correct password");
         } else {
             System.out.println("Username or password is incorrect");
         }
@@ -45,12 +45,12 @@ public class NavigateStepDef {
     @Then("welcome message is correct")
     public void welcomeMessageIsCorrect() {
         String message = driver.findElement(By.tagName("marquee")).getText();
-        assertEquals("Welcome message is positive", message, "Welcome To Customer's Page of Guru99 Bank");
+        assertEquals(message, "Welcome To Customer's Page of Guru99 Bank", "Welcome message is positive");
     }
 
     @Then("invalid credentials message is shown")
     public void invalidCredentialsMessageIsShown() {
         String message = driver.switchTo().alert().getText();
-        assertEquals("Welcome message is negative", message, "User or Password is not valid");
+        assertEquals(message, "User or Password is not valid", "Welcome message is negative");
     }
 }

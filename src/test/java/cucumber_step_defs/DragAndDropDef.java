@@ -9,8 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import static cucumber_step_defs.DriverInitializer.driver;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 public class DragAndDropDef {
 
@@ -28,8 +27,8 @@ public class DragAndDropDef {
         action.dragAndDrop(originBankElement, destinationBankElement).build().perform();
 
         assertEquals("User drops BANK element", originBankElement.getText().trim(), elementText);
-        assertTrue("Bank element is displayed in a table", driver.findElement(By.xpath("//ol[@id='bank']/li[@data-id='5']"))
-                .isDisplayed());
+        assertTrue(driver.findElement(By.xpath("//ol[@id='bank']/li[@data-id='5']"))
+                .isDisplayed(),"Bank element is displayed in a table");
     }
 
     @And("user drop debit amount {string}")
@@ -54,8 +53,8 @@ public class DragAndDropDef {
         action.dragAndDrop(originSalesElement, destinationSalesElement).build().perform();
 
         assertEquals("User drops SALES element", originSalesElement.getText().trim(), elementText);
-        assertTrue("Sales element is displayed in a table", driver.findElement(By.xpath("//ol[@id='loan']/li[@data-id='6']"))
-                .isDisplayed());
+        assertTrue(driver.findElement(By.xpath("//ol[@id='loan']/li[@data-id='6']"))
+                .isDisplayed(), "Sales element is displayed in a table");
     }
 
     @And("user drop credit amount {string}")
@@ -67,8 +66,8 @@ public class DragAndDropDef {
         action.dragAndDrop(originCreditElement, destinationCreditElement).build().perform();
 
         assertEquals("User drops credit element", originCreditElement.getText().trim(), elementText);
-        assertTrue("Credit value displayed in a table", driver.findElement(By.xpath("//ol[@id='amt8']/li[@data-id='2']"))
-                .isDisplayed());
+        assertTrue(driver.findElement(By.xpath("//ol[@id='amt8']/li[@data-id='2']"))
+                .isDisplayed(), "Credit value displayed in a table");
     }
 
     @Then("success message is shown")

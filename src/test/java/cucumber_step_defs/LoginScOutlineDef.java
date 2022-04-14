@@ -9,7 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static cucumber_step_defs.DriverInitializer.driver;
-import static org.junit.Assert.assertEquals;
+import static org.testng.Assert.*;
 
 public class LoginScOutlineDef {
 
@@ -29,8 +29,8 @@ public class LoginScOutlineDef {
     public void enterUsernameAndPassword(String username, String password) {
         driver.findElement(By.name("uid")).sendKeys(username);
         driver.findElement(By.name("password")).sendKeys(password);
-        assertEquals("Checking username correctness", username, "1303");
-        assertEquals("Checking password correctness", password, "Guru99");
+        assertEquals(username, "1303", "Checking username correctness");
+        assertEquals(password, "Guru99", "Checking password correctness");
     }
 
     @And("press login button")
@@ -41,6 +41,6 @@ public class LoginScOutlineDef {
     @Then("^welcome message should be ([^\"]*)$")
     public void welcomeMessageShouldBeExpectedMessage(String expectedMessage) {
         String message = driver.findElement(By.tagName("marquee")).getText();
-        assertEquals("Result message test", message, expectedMessage);
+        assertEquals(message, expectedMessage, "Result message test");
     }
 }

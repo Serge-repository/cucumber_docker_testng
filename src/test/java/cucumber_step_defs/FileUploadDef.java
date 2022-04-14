@@ -12,9 +12,8 @@ import java.nio.file.Paths;
 
 import static cucumber_step_defs.DriverInitializer.driver;
 import static cucumber_step_defs.DriverInitializer.wait;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
+import static org.testng.Assert.*;
 
 public class FileUploadDef {
 
@@ -25,7 +24,7 @@ public class FileUploadDef {
 
     @And("title of page is {string}")
     public void titleOfPageIs(String pageTitle) {
-        assertEquals("Page title is File Upload Demo", pageTitle, driver.getTitle());
+        assertEquals(pageTitle, driver.getTitle(),"Page title is File Upload Demo");
     }
 
     @When("user upload the File")
