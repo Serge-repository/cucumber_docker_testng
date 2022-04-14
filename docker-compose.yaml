@@ -19,8 +19,8 @@ services:
     volumes:
       - .\target\downloads:/home/seluser/Downloads
 ### Adding OUR DOCKER IMAGE RUN
-  cucumber-bdd:
-    image: serge11elzar/cucumber_docker
+  cucumber-testng:
+    image: serge11elzar/cucumber_docker_testng
     depends_on:
       - chrome
     environment:
@@ -30,5 +30,5 @@ services:
 #      TO RUN A SUITE OR EXACT FEATURE
 #      - CUCUMBER_OPTIONS=classpath:features/dragAndDrop.feature --tags @Smoke
     volumes:
-#      - .\target\allure-results:/usr/share/cucumber_docker/target/allure-results
-      - .\target\cucumber-reports:/usr/share/cucumber_docker/target/cucumber-reports
+#      - .\target\allure-results:/usr/share/cucumber_docker_testng/target/allure-results
+      - .\target\cucumber-reports:/usr/share/cucumber_docker_testng/target/cucumber-reports
