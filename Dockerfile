@@ -10,6 +10,7 @@ ADD target/libs libs
 
 ## Add health check script (only if run from simple docker-compose up command)
 ADD healthcheck.sh healthcheck.sh
+## If on Windows
 RUN dos2unix healthcheck.sh
 
 ## To run without healthcheck using ip or container
