@@ -2,9 +2,8 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-        tags = "@Smoke or @DragDrop",           //указав тег, можем тут же запускать через RunnerTest
-
         // Uncomment for local run
+//        tags = "@Smoke or @DragDrop",           //указав тег, можем тут же запускать ЛОКАЛЬНО через RunnerTest
 //        features = "src/test/resources/features", // Можно указать несколько папок, например: features = {«src/test/features», «src/test/feat»}
         // Uncomment for selenium grid run
         features = "classpath:features",
