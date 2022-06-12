@@ -8,7 +8,7 @@ ADD target/CucumberDockerTestNG.jar CucumberDockerTestNG.jar
 ADD target/CucumberDockerTestNG-tests.jar CucumberDockerTestNG-tests.jar
 ADD target/libs libs
 
-## Add health check script (only if run from simple docker-compose up command)
+## Add health check script (only if run from our application-image directly)
 ADD healthcheck.sh healthcheck.sh
 ## If on Windows
 RUN dos2unix healthcheck.sh
@@ -17,5 +17,5 @@ RUN dos2unix healthcheck.sh
 # Always use ":" because all containers will be running in alpine
 # ENTRYPOINT java -cp CucumberDockerTestNG.jar:CucumberDockerTestNG-tests.jar:libs/* -Dbrowser=$browser -DHUB_HOST=$HUB_HOST -Dcucumber.options=$CUCUMBER_OPTIONS org.testng.TestNG -testclass RunnerTest
 
-## To run with healthcheck (only if run from simple docker-compose up command)
+## To run with healthcheck (only if run from our application-image directly)
 ENTRYPOINT sh healthcheck.sh

@@ -2,7 +2,8 @@
 # Environment Variables
 # HUB_HOST
 # BROWSER
-# MODULE
+# TAGS
+# CUCUMBER_OPTIONS
 
 echo "Checking if hub is ready - $HUB_HOST"
 
@@ -12,5 +13,4 @@ do
 done
 
 # start the java command
-#java -cp CucumberDockerTestNG.jar:CucumberDockerTestNG-tests.jar:libs/* -Dbrowser=$browser -DHUB_HOST=$HUB_HOST -Dcucumber.options="$CUCUMBER_OPTIONS" org.testng.TestNG -testclass RunnerTest
 java -cp CucumberDockerTestNG.jar:CucumberDockerTestNG-tests.jar:libs/* -Dbrowser=$browser -DHUB_HOST=$HUB_HOST -Dcucumber.filter.tags="$TAGS" -Dcucumber.options="$CUCUMBER_OPTIONS" org.testng.TestNG -testclass RunnerTest
