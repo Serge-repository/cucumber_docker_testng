@@ -29,7 +29,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>CucumberWebGui</projectName>
+                            <projectName>CucumberDockerTestNG</projectName>
                             <jsonFiles>
                                 <param>**/*.json</param>
                             </jsonFiles>
